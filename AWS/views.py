@@ -13,7 +13,7 @@ def viewArticle(request, articleId):
    return HttpResponse(text)
 
 def aws_vpcs():
-    print "Returning list of vpcs now"
+    print("Returning list of vpcs now")
     client = boto3.client('ec2', region_name='us-east-1')
     response = client.describe_vpcs(
         Filters=[
@@ -23,4 +23,4 @@ def aws_vpcs():
         ]
     )
     resp = response['Vpcs']
-    print resp
+    print(resp)
