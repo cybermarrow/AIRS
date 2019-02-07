@@ -2,8 +2,10 @@
 Django hello world
 
 # Requirements 
-`python 3.7`
-`~/.aws/credentials`
+```
+python 3.7
+~/.aws/credentials
+```
 
 # Steps for installation
 
