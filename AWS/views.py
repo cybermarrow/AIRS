@@ -24,3 +24,19 @@ def aws_vpcs():
     )
     resp = response['Vpcs']
     print(resp)
+
+def listInstances(request):
+    print("List ec2 instance")
+
+    client = boto3.client('ec2', region_name='us-east-1')
+
+    response = client.describe_instances()
+    reservations = response['Reservations']
+    instances_list = []
+
+    for reservation in reservations:
+        instances = reservation['Instances']
+        for instance in instances:
+            instances_list.append(instance['InstanceId'])
+
+    return render(request, "instances.html", {"instances": instances_list})

@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from AWS.views  import hello,viewArticle
+from AWS.views  import hello,viewArticle,listInstances
 
 urlpatterns = [
     url(r'^hello/', hello, name = 'hello'),
     url(r'^article/(\d+)/', viewArticle, name = 'article'),
+    url(r'^instances', listInstances, name = 'listInstances')
 ]
