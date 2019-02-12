@@ -8,22 +8,25 @@ def hello(request):
     today = datetime.datetime.now().date()
     return render(request,"hello.html",{"today" : today})
 
-def viewArticle(request, articleId):
-   text = "Displaying article Number : %s"%articleId
-   return HttpResponse(text)
-
-def aws_vpcs():
+def aws_vpcs(request):
+    vpc_list = []
     print("Returning list of vpcs now")
     client = boto3.client('ec2', region_name='us-east-1')
     response = client.describe_vpcs(
         Filters=[
             {
-                'state': 'available'
+                'Name': 'state',
+                'Values': ['available']
             }
         ]
     )
     resp = response['Vpcs']
-    print(resp)
+
+    for vpc in resp:
+        for k, v in vpc.items():
+            if (k == 'VpcId'):
+                vpc_list.append(v)
+    return render(request,"vpc.html",{"vpc_list" : vpc_list})
 
 def listInstances(request):
     print("List ec2 instance")

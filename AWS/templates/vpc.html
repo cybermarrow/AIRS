@@ -1,0 +1,15 @@
+{% extends "main_template.html" %}
+{% block title %}CyberMarrow's AIRS{% endblock %}
+{% block content %}
+
+
+   <p>
+       List of VPCs
+       <br>
+         {% for vpc in vpc_list %}
+       <a href="#">{{vpc}}</a>
+      </p>
+
+   {% endfor %}
+
+{% endblock %}
