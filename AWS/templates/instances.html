@@ -1,0 +1,19 @@
+{% extends "main_template.html" %}
+{% block title %}Instances List{% endblock %}
+{% block content %}
+
+<table>
+	<thead>
+		<th>Sr. No</th>
+		<th>Instance Id</th>
+	</thead>
+	<tbody>
+   		{% for i in instances %}
+   		<tr>
+   			<td>{{forloop.counter}}</td>
+   			<td>{{i}}</td>
+   		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

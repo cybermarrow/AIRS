@@ -2,7 +2,10 @@
 Django hello world
 
 # Requirements 
+```
 python 3.7
+~/.aws/credentials
+```
 
 # Steps for installation
 
@@ -22,4 +25,10 @@ python manage.py runserver
 Demo URL
 ```
 http://127.0.0.1:8000/AWS/hello/
+```
+
+##Page in Development
+### List of instances(us-east-1)
+```
+http://127.0.0.1:8000/AWS/instances
 ```
